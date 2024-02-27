@@ -1,0 +1,28 @@
+﻿@model List<ShoppingCartItem>
+
+<h2>Review Your Order</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Product.Name</td>
+                <td>@item.Product.Price</td>
+                <td>@item.Quantity</td>
+                <td>@(item.Quantity * item.Product.Price)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="ShippingDetails" class="btn btn-primary">Proceed to Shipping</a>
+
